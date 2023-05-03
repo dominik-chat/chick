@@ -1,0 +1,11 @@
+# Output directories
+build*/
+
+# Objects
+*.o
+*.elf
+*.a
+
+# Output files
+*.hex
+*.bin
