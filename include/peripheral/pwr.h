@@ -42,7 +42,6 @@
 /* AWUPSC */
 #define PWR_AWUPSC_MASK		(0x0Ful << 0)
 #define PWR_AWUPSC_OFF		(0x00ul << 0)
-#define PWR_AWUPSC_OFF2		(0x01ul << 0)
 #define PWR_AWUPSC_2		(0x02ul << 0)
 #define PWR_AWUPSC_4		(0x03ul << 0)
 #define PWR_AWUPSC_8		(0x04ul << 0)
