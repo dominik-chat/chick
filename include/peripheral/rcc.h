@@ -31,8 +31,10 @@
 #define RCC_CTRL_HSEON		(0x01ul << 16)
 
 #define RCC_CTRL_HSICAL_MASK	(0xFFul << 8)
+#define RCC_CTRL_HSICAL_VAL(x)	(((x) & RCC_CTRL_HSICAL_MASK) >> 8)
 
 #define RCC_CTRL_HSITRIM_MASK	(0x1Ful << 3)
+#define RCC_CTRL_HSITRIM(x)	((x) << 3)
 
 #define RCC_CTRL_HSIRDY_MASK	(0x01ul << 1)
 #define RCC_CTRL_HSIRDY		(0x01ul << 1)
