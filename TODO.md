@@ -1,0 +1,44 @@
+# TODO
+
+- [ ] Peripheral register definition
+  - [x] PWR
+  - [x] RCC
+  - [x] IWDG
+  - [x] WWDG
+  - [x] PFIC
+  - [x] EXTI
+  - [x] STK
+  - [x] GPIO
+  - [x] AFIO
+  - [ ] DMA
+  - [ ] ADC
+  - [ ] ADTM
+  - [ ] GPTM
+  - [ ] USART
+  - [ ] I2C
+  - [ ] SPI
+  - [ ] ESIG
+  - [ ] FLASH
+  - [ ] EXT_CFG
+- [ ] HAL
+  - [ ] PWR
+  - [ ] RCC
+  - [ ] IWDG
+  - [ ] WWDG
+  - [ ] PFIC
+  - [ ] EXTI
+  - [ ] STK
+  - [ ] GPIO
+  - [ ] AFIO
+  - [ ] DMA
+  - [ ] ADC
+  - [ ] ADTM
+  - [ ] GPTM
+  - [ ] USART
+  - [ ] I2C
+  - [ ] SPI
+  - [ ] ESIG
+  - [ ] FLASH
+  - [ ] EXT_CFG
+  - [ ] CSR (p 48 + 181)
+- [ ] Build system
