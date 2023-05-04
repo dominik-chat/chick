@@ -14,7 +14,7 @@
   - [ ] ADC
   - [ ] ADTM
   - [ ] GPTM
-  - [ ] USART
+  - [x] USART
   - [ ] I2C
   - [ ] SPI
   - [ ] ESIG
