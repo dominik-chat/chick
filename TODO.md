@@ -17,7 +17,7 @@
   - [x] USART
   - [ ] I2C
   - [ ] SPI
-  - [ ] ESIG
+  - [x] ESIG
   - [ ] FLASH
   - [ ] EXT_CFG
 - [ ] HAL
@@ -37,7 +37,7 @@
   - [ ] USART
   - [ ] I2C
   - [ ] SPI
-  - [ ] ESIG
+  - [x] ESIG
   - [ ] FLASH
   - [ ] EXT_CFG
   - [ ] CSR (p 48 + 181)
