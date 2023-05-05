@@ -18,7 +18,8 @@
   - [ ] I2C
   - [ ] SPI
   - [x] ESIG
-  - [ ] FLASH
+  - [x] FLASH
+  - [x] USER_WORDS
   - [ ] EXT_CFG
 - [ ] HAL
   - [ ] PWR
@@ -39,6 +40,7 @@
   - [ ] SPI
   - [x] ESIG
   - [ ] FLASH
+  - [ ] USER_WORDS
   - [ ] EXT_CFG
   - [ ] CSR (p 48 + 181)
 - [ ] Build system
