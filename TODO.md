@@ -20,7 +20,7 @@
   - [x] ESIG
   - [x] FLASH
   - [x] USER_WORDS
-  - [ ] EXT_CFG
+  - [x] EXTEN
 - [ ] HAL
   - [ ] PWR
   - [ ] RCC
@@ -41,6 +41,6 @@
   - [x] ESIG
   - [ ] FLASH
   - [ ] USER_WORDS
-  - [ ] EXT_CFG
+  - [ ] EXTEN
   - [ ] CSR (p 48 + 181)
 - [ ] Build system
