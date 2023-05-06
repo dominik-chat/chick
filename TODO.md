@@ -10,7 +10,7 @@
   - [x] STK
   - [x] GPIO
   - [x] AFIO
-  - [ ] DMA
+  - [x] DMA
   - [ ] ADC
   - [ ] ADTM
   - [ ] GPTM
@@ -44,3 +44,10 @@
   - [ ] EXTEN
   - [ ] CSR (p 48 + 181)
 - [ ] Build system
+  - [ ] crt0.S
+  - [ ] linker
+  - [ ] makefile/cmake
+- [ ] Examples
+  - [ ] Blinky
+  - [ ] Hello world
+  - [ ] Bootloader blinky
