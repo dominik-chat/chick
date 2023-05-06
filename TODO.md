@@ -11,7 +11,7 @@
   - [x] GPIO
   - [x] AFIO
   - [x] DMA
-  - [ ] ADC
+  - [x] ADC
   - [ ] ADTM
   - [ ] GPTM
   - [x] USART
