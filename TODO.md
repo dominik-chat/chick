@@ -44,8 +44,8 @@
   - [ ] EXTEN
   - [ ] CSR (p 48 + 181)
 - [ ] Build system
-  - [ ] crt0.S
-  - [ ] linker
+  - [x] crt0.S
+  - [x] linker
   - [ ] makefile/cmake
 - [ ] Examples
   - [ ] Blinky
