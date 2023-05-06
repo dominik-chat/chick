@@ -23,7 +23,7 @@
   - [x] EXTEN
 - [ ] HAL
   - [ ] PWR
-  - [ ] RCC
+  - [x] RCC
   - [ ] IWDG
   - [ ] WWDG
   - [ ] PFIC

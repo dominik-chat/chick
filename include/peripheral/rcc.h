@@ -178,7 +178,6 @@
 #define RCC_AHBPCENR_SRAMEN_MASK	(0x01ul << 2)
 #define RCC_AHBPCENR_SRAMEN		(0x01ul << 2)
 
-/* AHBPCENR */
 #define RCC_AHBPCENR_DMA1EN_MASK	(0x01ul << 0)
 #define RCC_AHBPCENR_DMA1EN		(0x01ul << 0)
 
