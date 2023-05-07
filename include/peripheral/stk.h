@@ -46,6 +46,6 @@ typedef struct {
 	uint32_t CMPLR;		/**< Counting comparison low */
 } per_stk_t;
 
-volatile per_stk_t *STK = (volatile per_stk_t *)STK_REG_OFFSET;
+extern volatile per_stk_t *STK;
 
 #endif /* _PERIPHERAL_STK_H_ */

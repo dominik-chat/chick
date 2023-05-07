@@ -213,6 +213,6 @@ typedef struct {
 	uint32_t DLYR;			/**< Delayed data */
 } per_adc_t;
 
-volatile per_adc_t *ADC = (volatile per_adc_t *)ADC_REG_OFFSET;
+extern volatile per_adc_t *ADC;
 
 #endif /* _PERIPHERAL_ADC_H_ */

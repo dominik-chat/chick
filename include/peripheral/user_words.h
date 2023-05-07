@@ -59,8 +59,8 @@ typedef struct {
 	uint8_t nWRPR2;
 	uint8_t WRPR3;			/**< Write-protect control bits 3 */
 	uint8_t nWRPR3;
-} per_userbw_t;
+} per_userw_t;
 
-volatile per_userw_t *USERW = (volatile per_userw_t *)USER_WORDS_REG_OFFSET;
+extern volatile per_userw_t *USERW;
 
 #endif /* _PERIPHERAL_USERW_H_ */

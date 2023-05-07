@@ -228,10 +228,10 @@ typedef struct {
 	uint32_t IACTR2;		/**< Interrupt activation status 2 */
 	uint32_t RESERVED10[30];	/**< RESERVED */
 	uint32_t IPRIOR[64];		/**< Interrupt priority configuration */
-	uint32_t RESERVED10[516];	/**< RESERVED */
+	uint32_t RESERVED11[516];	/**< RESERVED */
 	uint32_t SCTLR;			/**< System control register */
 } per_pfic_t;
 
-volatile per_pfic_t *PFIC = (volatile per_pfic_t *)PFIC_REG_OFFSET;
+extern volatile per_pfic_t *PFIC;
 
 #endif /* _PERIPHERAL_PFIC_H_ */

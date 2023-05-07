@@ -37,6 +37,6 @@ typedef struct {
 	uint32_t CTR;			/**< Configure extended control */
 } per_exten_t;
 
-volatile per_exten_t *EXTEN = (volatile per_exten_t *)EXTEN_REG_OFFSET;
+extern volatile per_exten_t *EXTEN;
 
 #endif /* _PERIPHERAL_EXTEN_H_ */

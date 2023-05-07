@@ -97,8 +97,8 @@
 #define FLASH_OBR_DATA1_MASK		(0xFFul << 18)
 #define FLASH_OBR_DATA1(x)		((x) << 18)
 
-#define FLASH_OBR_DATA1_MASK		(0xFFul << 10)
-#define FLASH_OBR_DATA1(x)		((x) << 10)
+#define FLASH_OBR_DATA0_MASK		(0xFFul << 10)
+#define FLASH_OBR_DATA0(x)		((x) << 10)
 
 #define FLASH_OBR_CFGRSTT_MASK		(0x03ul << 5)
 
@@ -142,6 +142,6 @@ typedef struct {
 	uint32_t BOOT_MODEKEYR;		/**< Unlock BOOT key */
 } per_flash_t;
 
-volatile per_flash_t *FLASH = (volatile per_flash_t *)FLASH_REG_OFFSET;
+extern volatile per_flash_t *FLASH;
 
 #endif /* _PERIPHERAL_FLASH_H_ */

@@ -44,6 +44,6 @@ typedef struct {
 	uint32_t INTFR;		/**< Interrupt flag */
 } per_exti_t;
 
-volatile per_exti_t *EXTI = (volatile per_exti_t *)EXTI_REG_OFFSET;
+extern volatile per_exti_t *EXTI;
 
 #endif /* _PERIPHERAL_EXTI_H_ */

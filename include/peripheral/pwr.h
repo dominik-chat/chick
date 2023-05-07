@@ -65,6 +65,6 @@ typedef struct {
 	uint32_t AWUPSC;	/**< Auto-wakeup crossover factor */
 } per_pwr_t;
 
-volatile per_pwr_t *PWR = (volatile per_pwr_t *)PWR_REG_OFFSET;
+extern volatile per_pwr_t *PWR;
 
 #endif /* _PERIPHERAL_PWR_H_ */

@@ -260,6 +260,6 @@ typedef struct {
 	uint32_t RSTSCKR;	/**< Control/status */
 } per_rcc_t;
 
-volatile per_rcc_t *RCC = (volatile per_rcc_t *)RCC_REG_OFFSET;
+extern volatile per_rcc_t *RCC;
 
 #endif /* _PERIPHERAL_RCC_H_ */

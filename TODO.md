@@ -43,10 +43,10 @@
   - [ ] USER_WORDS
   - [ ] EXTEN
   - [ ] CSR (p 48 + 181)
-- [ ] Build system
+- [x] Build system
   - [x] crt0.S
   - [x] linker
-  - [ ] makefile/cmake
+  - [x] makefile/cmake
 - [ ] Examples
   - [ ] Blinky
   - [ ] Hello world

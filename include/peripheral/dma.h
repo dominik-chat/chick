@@ -132,7 +132,6 @@ typedef struct {
 	uint32_t MADDR7;		/**< DMA channel 7 memory address */
 } per_dma_t;
 
-volatile per_dma_t *GPIO_A = (volatile per_dma_t *)GPIO_A_REG_OFFSET;
-
+extern volatile per_dma_t *DMA;
 
 #endif /* _PERIPHERAL_DMA_H_ */

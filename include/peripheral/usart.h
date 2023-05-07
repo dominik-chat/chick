@@ -178,6 +178,6 @@ typedef struct {
 	uint32_t GPR;			/**< Protection time and prescaler */
 } per_usart_t;
 
-volatile per_usart_t *USART = (volatile per_usart_t *)USART_REG_OFFSET;
+extern volatile per_usart_t *USART;
 
 #endif /* _PERIPHERAL_USART_H_ */

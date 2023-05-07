@@ -47,6 +47,6 @@ typedef struct {
 	uint16_t STATR;		/**< Status */
 } per_iwdg_t;
 
-volatile per_iwdg_t *IWDG = (volatile per_iwdg_t *)IWDG_REG_OFFSET;
+extern volatile per_iwdg_t *IWDG;
 
 #endif /* _PERIPHERAL_IWDG_H_ */

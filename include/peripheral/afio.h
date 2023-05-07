@@ -71,6 +71,6 @@ typedef struct {
 	uint32_t EXTICR;		/**< Port output data */
 } per_afio_t;
 
-volatile per_afio_t *AFIO = (volatile per_afio_t *)AFIO_REG_OFFSET;
+extern volatile per_afio_t *AFIO;
 
 #endif /* _PERIPHERAL_AFIO_H_ */

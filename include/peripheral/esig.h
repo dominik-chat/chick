@@ -29,6 +29,6 @@ typedef struct {
 	uint32_t UNIID3;		/**< UID 3 */
 } per_esig_t;
 
-volatile per_esig_t *ESIG = (volatile per_esig_t *)ESIG_REG_OFFSET;
+extern volatile per_esig_t *ESIG;
 
 #endif /* _PERIPHERAL_ESIG_H_ */

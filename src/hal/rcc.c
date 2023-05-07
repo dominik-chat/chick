@@ -318,6 +318,8 @@ HAL_err RCC_set_sysclk_src(uint8_t clock)
 		default:
 		return HAL_EINVAL;
 	}
+
+	return HAL_OK;
 }
 
 HAL_err RCC_get_intflag(uint8_t interrupt, bool *flag)

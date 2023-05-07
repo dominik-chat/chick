@@ -65,8 +65,8 @@ typedef struct {
 	uint32_t LCKR;		/**< Port configuration lock */
 } per_gpio_t;
 
-volatile per_gpio_t *GPIO_A = (volatile per_gpio_t *)GPIO_A_REG_OFFSET;
-volatile per_gpio_t *GPIO_C = (volatile per_gpio_t *)GPIO_C_REG_OFFSET;
-volatile per_gpio_t *GPIO_D = (volatile per_gpio_t *)GPIO_D_REG_OFFSET;
+extern volatile per_gpio_t *GPIO_A;
+extern volatile per_gpio_t *GPIO_C;
+extern volatile per_gpio_t *GPIO_D;
 
 #endif /* _PERIPHERAL_GPIO_H_ */

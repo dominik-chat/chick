@@ -4,8 +4,8 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#include "peripheral/gpio.h"
-#include "hal/gpio.h"
+#include "peripheral/esig.h"
+#include "hal/esig.h"
 #include "hal_internal.h"
 
 HAL_err ESIG_get_flash_size(uint32_t *size)

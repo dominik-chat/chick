@@ -80,11 +80,12 @@ reset_handler:
 	la s1, _ebss
 	beq a0, a1, 2f
 1:
-	sw zero (a0)
+	sw zero, (a0)
 	addi a0, a0, 4
 	bltu a0, a1, 1b
 2:
 # Enable machine mode interrupts
+	.option arch, +zicsr
 	li t0, 0x80 # MPIE
 	csrw mstatus, t0
 

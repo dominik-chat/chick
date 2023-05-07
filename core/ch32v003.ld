@@ -11,7 +11,7 @@ __stack_size = 512;
 MEMORY
 {
 	FLASH(rx)	: ORIGIN = 0x00000000, LENGTH = 16K
-	FLASH(rwx)	: ORIGIN = 0x20000000, LENGTH = 2K
+	RAM(rwx)	: ORIGIN = 0x20000000, LENGTH = 2K
 }
 
 SECTIONS
@@ -25,10 +25,8 @@ SECTIONS
 	{
 		. = ALIGN(4);
 		*(.text)
-		*(.text.*)
 		*(.rodata)
-		*(.rodata*)
-		. = ALIGN(4)
+		. = ALIGN(4);
 		PROVIDE(_sdata_flash = .);
 	} >FLASH
 
@@ -39,21 +37,21 @@ SECTIONS
 		PROVIDE(__global_pointer$ = .);
 		*(.data .data.*)
 		*(.rodata .rodata.*)
-		. = ALIGN(4)
-		PROVIDE(edata_ram = .);
+		. = ALIGN(4);
+		PROVIDE(_edata = .);
 	} >RAM AT>FLASH
 
 	.bss (NOLOAD) :
 	{
-		. = ALIGN(4)
+		. = ALIGN(4);
 		PROVIDE(_sbss = .);
 		*(.bss*)
 		*(COMMON*)
-		. = ALIGN(4)
-		PROVIDE(ebss = .);
+		. = ALIGN(4);
+		PROVIDE(_ebss = .);
 	} >RAM
 
-	.stack : ORIGIN(RAM) + LENGTH(RAM) - __stack_size :
+	.stack ORIGIN(RAM) + LENGTH(RAM) - __stack_size :
 	{
 		. = . + __stack_size;
 		PROVIDE(_estack = .);

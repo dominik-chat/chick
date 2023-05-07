@@ -41,6 +41,6 @@ typedef struct {
 	uint16_t STATR;		/**< Status */
 } per_wwdg_t;
 
-volatile per_wwdg_t *WWDG = (volatile per_wwdg_t *)WWDG_REG_OFFSET;
+extern volatile per_wwdg_t *WWDG;
 
 #endif /* _PERIPHERAL_WWDG_H_ */
