@@ -7,6 +7,7 @@
 /* This is just a temporary main.c for buildsystem testing */
 
 #include "peripheral/adc.h"
+#include "peripheral/adtm.h"
 #include "peripheral/afio.h"
 #include "peripheral/dma.h"
 #include "peripheral/esig.h"
@@ -24,6 +25,7 @@
 #include "peripheral/wwdg.h"
 
 volatile per_adc_t *ADC = (volatile per_adc_t *)ADC_REG_OFFSET;
+volatile per_adtm_t *ADTM = (volatile per_adtm_t *)ADTM_REG_OFFSET;
 volatile per_afio_t *AFIO = (volatile per_afio_t *)AFIO_REG_OFFSET;
 volatile per_dma_t *DMA = (volatile per_dma_t *)DMA_REG_OFFSET;
 volatile per_esig_t *ESIG = (volatile per_esig_t *)ESIG_REG_OFFSET;

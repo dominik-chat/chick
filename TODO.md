@@ -12,7 +12,7 @@
   - [x] AFIO
   - [x] DMA
   - [x] ADC
-  - [ ] ADTM
+  - [x] ADTM
   - [ ] GPTM
   - [x] USART
   - [ ] I2C
