@@ -4,6 +4,6 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#define BIT_SET(reg, bit)		reg ^= bit
+#define BIT_SET(reg, bit)		reg ^= (bit)
 #define BIT_CLEAR(reg, bit)		reg &= (~bit)
-#define FIELD_SET(reg, mask, val)	reg = ((reg & (~mask)) ^ val)
+#define FIELD_SET(reg, mask, val)	reg = ((reg & (~mask)) ^ (val))

@@ -24,9 +24,34 @@
 #include "peripheral/wwdg.h"
 
 #include "hal/esig.h"
+#include "hal/gpio.h"
 #include "hal/rcc.h"
+
+void delay(void)
+{
+	volatile uint32_t i;
+
+	for (i = 0; i < 400000ul; i++) {
+
+	}
+}
 
 int main(void)
 {
 	RCC_init_clock(CLOCK_HSE);
+	RCC_set_pll_src(CLOCK_HSE);
+	RCC_init_clock(CLOCK_PLL);
+	FLASH->ACTLR = FLASH_ACTLR_LATENCY_1;
+	RCC_set_sysclk_src(CLOCK_PLL);
+
+	RCC_enable_peripherial(APB_GPIOD);
+
+	GPIO_init_out(PORT_D, 4, CONF_OUT_PUSHPULL, SPEED_10);
+
+	while(1) {
+		delay();
+		GPIO_set_pin(PORT_D, 4);
+		delay();
+		GPIO_clear_pin(PORT_D, 4);
+	}
 }
