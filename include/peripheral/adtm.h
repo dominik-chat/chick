@@ -305,7 +305,7 @@
 
 /* CHCTLR1 - capture mode */
 #define ADTM_CHCTLR1_IC2F_MASK		(0x0Ful << 12)
-#define ADTM_CHCTLR1_IC2F_8_N6		(0x00ul << 12)
+#define ADTM_CHCTLR1_IC2F_NONE		(0x00ul << 12)
 #define ADTM_CHCTLR1_IC2F_INT_N2	(0x01ul << 12)
 #define ADTM_CHCTLR1_IC2F_INT_N4	(0x02ul << 12)
 #define ADTM_CHCTLR1_IC2F_INT_N8	(0x03ul << 12)
@@ -329,7 +329,7 @@
 #define ADTM_CHCTLR1_IC2PSC_8		(0x03ul << 10)
 
 #define ADTM_CHCTLR1_IC1F_MASK		(0x0Ful << 4)
-#define ADTM_CHCTLR1_IC1F_8_N6		(0x00ul << 4)
+#define ADTM_CHCTLR1_IC1F_NONE		(0x00ul << 4)
 #define ADTM_CHCTLR1_IC1F_INT_N2	(0x01ul << 4)
 #define ADTM_CHCTLR1_IC1F_INT_N4	(0x02ul << 4)
 #define ADTM_CHCTLR1_IC1F_INT_N8	(0x03ul << 4)
@@ -406,7 +406,7 @@
 
 /* CHCTLR2 - capture mode */
 #define ADTM_CHCTLR2_IC4F_MASK		(0x0Ful << 12)
-#define ADTM_CHCTLR2_IC4F_8_N6		(0x00ul << 12)
+#define ADTM_CHCTLR2_IC4F_NONE		(0x00ul << 12)
 #define ADTM_CHCTLR2_IC4F_INT_N2	(0x01ul << 12)
 #define ADTM_CHCTLR2_IC4F_INT_N4	(0x02ul << 12)
 #define ADTM_CHCTLR2_IC4F_INT_N8	(0x03ul << 12)
@@ -430,7 +430,7 @@
 #define ADTM_CHCTLR2_IC4PSC_8		(0x03ul << 10)
 
 #define ADTM_CHCTLR2_IC3F_MASK		(0x0Ful << 4)
-#define ADTM_CHCTLR2_IC3F_8_N6		(0x00ul << 4)
+#define ADTM_CHCTLR2_IC3F_NONE		(0x00ul << 4)
 #define ADTM_CHCTLR2_IC3F_INT_N2	(0x01ul << 4)
 #define ADTM_CHCTLR2_IC3F_INT_N4	(0x02ul << 4)
 #define ADTM_CHCTLR2_IC3F_INT_N8	(0x03ul << 4)
@@ -493,8 +493,8 @@
 #define ADTM_CCER_CC1P_MASK		(0x01ul << 1)
 #define ADTM_CCER_CC1P			(0x01ul << 1)
 
-#define ADTM_CCER_CC4E_MASK		(0x01ul << 0)
-#define ADTM_CCER_CC4E			(0x01ul << 0)
+#define ADTM_CCER_CC1E_MASK		(0x01ul << 0)
+#define ADTM_CCER_CC1E			(0x01ul << 0)
 
 /* CNT */
 #define ADTM_CNT_MASK			(0xFFFFul << 0)
@@ -558,10 +558,10 @@
 
 /* DMACFGR */
 #define ADTM_DMACFGR_DBL_MASK		(0x1Ful << 8)
-#define ADTM_DMACFGR_DBL_MASK		((x) << 8)
+#define ADTM_DMACFGR_DBL		((x) << 8)
 
 #define ADTM_DMACFGR_DBA_MASK		(0x1Ful << 8)
-#define ADTM_DMACFGR_DBA_MASK		((x) << 8)
+#define ADTM_DMACFGR_DBA		((x) << 8)
 
 /* DMAADR */
 #define ADTM_DMAADR_MASK		(0xFFFFul << 0)

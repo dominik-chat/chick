@@ -22,7 +22,7 @@ PRJ_OBJ = $(PRJ_SRC:project/%.c=$(BUILD_DIR)/project/%.o)
 OBJS = $(OBJ) $(ASM_OBJ) $(PRJ_OBJ)
 
 CFLAGS += \
-	-O2 -flto \
+	-O2 -g -flto \
 	-ffunction-sections \
 	-static-libgcc \
 	-march=rv32ec \
@@ -65,7 +65,8 @@ $(PRJ).elf: $(OBJS)
 
 finish:
 	@$(SIZE) $(BUILD_DIR)/$(PRJ).elf
-	@$(DUMP) -D $(BUILD_DIR)/$(PRJ).elf > $(BUILD_DIR)/$(PRJ).lst
+	@$(DUMP) -d -S $(BUILD_DIR)/$(PRJ).elf > $(BUILD_DIR)/$(PRJ).lst
+	@$(DUMP) -t $(BUILD_DIR)/$(PRJ).elf > $(BUILD_DIR)/$(PRJ).map
 	@$(COPY) -S -O ihex $(BUILD_DIR)/$(PRJ).elf $(BUILD_DIR)/$(PRJ).hex
 	@$(COPY) -S -O binary $(BUILD_DIR)/$(PRJ).elf $(BUILD_DIR)/$(PRJ).bin
 

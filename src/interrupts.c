@@ -4,17 +4,19 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
+#include "peripheral/pfic.h"
+
 #define __irq 	__attribute__((interrupt))
 #define __weak 	__attribute__((weak))
 
 __weak __irq void IRQ_nmi(void)
 {
-
+	while(1);
 }
 
 __weak __irq void IRQ_hardfault(void)
 {
-
+	while(1);
 }
 
 __weak __irq void IRQ_systick(void)
