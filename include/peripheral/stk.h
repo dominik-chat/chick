@@ -43,6 +43,7 @@ typedef struct {
 	uint32_t CTLR;		/**< System count control */
 	uint32_t SR;		/**< System count status */
 	uint32_t CNTL;		/**< System counter low */
+	uint32_t RESERVED;	/**< RESERVED */
 	uint32_t CMPLR;		/**< Counting comparison low */
 } per_stk_t;
 
