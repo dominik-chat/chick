@@ -13,7 +13,7 @@
   - [x] DMA
   - [x] ADC
   - [x] ADTM
-  - [ ] GPTM
+  - [x] GPTM
   - [x] USART
   - [x] I2C
   - [ ] SPI

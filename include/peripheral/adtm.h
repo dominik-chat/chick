@@ -49,28 +49,28 @@
 
 /* CTLR2 */
 #define ADTM_CTLR2_OIS4_MASK		(0x01ul << 14)
-#define ADTM_CTLR1_OIS4			(0x01ul << 14)
+#define ADTM_CTLR2_OIS4			(0x01ul << 14)
 
 #define ADTM_CTLR2_OIS3N_MASK		(0x01ul << 13)
-#define ADTM_CTLR1_OIS3N		(0x01ul << 13)
+#define ADTM_CTLR2_OIS3N		(0x01ul << 13)
 
 #define ADTM_CTLR2_OIS3_MASK		(0x01ul << 12)
-#define ADTM_CTLR1_OIS3			(0x01ul << 12)
+#define ADTM_CTLR2_OIS3			(0x01ul << 12)
 
 #define ADTM_CTLR2_OIS2N_MASK		(0x01ul << 11)
-#define ADTM_CTLR1_OIS2N		(0x01ul << 11)
+#define ADTM_CTLR2_OIS2N		(0x01ul << 11)
 
 #define ADTM_CTLR2_OIS2_MASK		(0x01ul << 10)
-#define ADTM_CTLR1_OIS2			(0x01ul << 10)
+#define ADTM_CTLR2_OIS2			(0x01ul << 10)
 
 #define ADTM_CTLR2_OIS1N_MASK		(0x01ul << 9)
-#define ADTM_CTLR1_OIS1N		(0x01ul << 9)
+#define ADTM_CTLR2_OIS1N		(0x01ul << 9)
 
 #define ADTM_CTLR2_OIS1_MASK		(0x01ul << 8)
-#define ADTM_CTLR1_OIS1			(0x01ul << 8)
+#define ADTM_CTLR2_OIS1			(0x01ul << 8)
 
 #define ADTM_CTLR2_TI1S_MASK		(0x01ul << 7)
-#define ADTM_CTLR1_TI1S			(0x01ul << 7)
+#define ADTM_CTLR2_TI1S			(0x01ul << 7)
 
 #define ADTM_CTLR2_MMS_MASK		(0x07ul << 4)
 #define ADTM_CTLR2_MMS_UG		(0x00ul << 4)
@@ -83,13 +83,13 @@
 #define ADTM_CTLR2_MMS_OC4REF		(0x07ul << 4)
 
 #define ADTM_CTLR2_CCDS_MASK		(0x01ul << 3)
-#define ADTM_CTLR1_CCDS			(0x01ul << 3)
+#define ADTM_CTLR2_CCDS			(0x01ul << 3)
 
 #define ADTM_CTLR2_CCUS_MASK		(0x01ul << 2)
-#define ADTM_CTLR1_CCUS			(0x01ul << 2)
+#define ADTM_CTLR2_CCUS			(0x01ul << 2)
 
 #define ADTM_CTLR2_CCPC_MASK		(0x01ul << 0)
-#define ADTM_CTLR1_CCPC			(0x01ul << 0)
+#define ADTM_CTLR2_CCPC			(0x01ul << 0)
 
 /* SMCFGR */
 #define ADTM_SMCFGR_ETP_MASK		(0x01ul << 15)
@@ -135,7 +135,7 @@
 #define ADTM_SMCFGR_TS_ETRF		(0x07ul << 4)
 
 #define ADTM_SMCFGR_SMS_MASK		(0x07ul << 0)
-#define ADTM_SMCFGR_SMS_CK_INT		(0x0-ul << 0)
+#define ADTM_SMCFGR_SMS_CK_INT		(0x00ul << 0)
 #define ADTM_SMCFGR_SMS_ENC1		(0x01ul << 0)
 #define ADTM_SMCFGR_SMS_ENC2		(0x02ul << 0)
 #define ADTM_SMCFGR_SMS_ENC3		(0x03ul << 0)

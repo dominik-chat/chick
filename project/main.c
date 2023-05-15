@@ -7,6 +7,7 @@
 /* This is just a temporary main.c for buildsystem testing */
 
 #include "peripheral/adc.h"
+#include "peripheral/adtm.h"
 #include "peripheral/afio.h"
 #include "peripheral/dma.h"
 #include "peripheral/esig.h"
@@ -14,6 +15,8 @@
 #include "peripheral/exti.h"
 #include "peripheral/flash.h"
 #include "peripheral/gpio.h"
+#include "peripheral/gptm.h"
+#include "peripheral/i2c.h"
 #include "peripheral/iwdg.h"
 #include "peripheral/pfic.h"
 #include "peripheral/pwr.h"

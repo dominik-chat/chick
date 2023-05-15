@@ -13,6 +13,7 @@
 #include "peripheral/exti.h"
 #include "peripheral/flash.h"
 #include "peripheral/gpio.h"
+#include "peripheral/gptm.h"
 #include "peripheral/i2c.h"
 #include "peripheral/iwdg.h"
 #include "peripheral/pfic.h"
@@ -34,6 +35,7 @@ volatile per_flash_t *FLASH = (volatile per_flash_t *)FLASH_REG_OFFSET;
 volatile per_gpio_t *GPIO_A = (volatile per_gpio_t *)GPIO_A_REG_OFFSET;
 volatile per_gpio_t *GPIO_C = (volatile per_gpio_t *)GPIO_C_REG_OFFSET;
 volatile per_gpio_t *GPIO_D = (volatile per_gpio_t *)GPIO_D_REG_OFFSET;
+volatile per_gptm_t *GPTM = (volatile per_gptm_t *)GPTM_REG_OFFSET;
 volatile per_i2c_t *I2C = (volatile per_i2c_t *)I2C_REG_OFFSET;
 volatile per_iwdg_t *IWDG = (volatile per_iwdg_t *)IWDG_REG_OFFSET;
 volatile per_pfic_t *PFIC = (volatile per_pfic_t *)PFIC_REG_OFFSET;
