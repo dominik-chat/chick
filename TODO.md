@@ -15,7 +15,7 @@
   - [x] ADTM
   - [ ] GPTM
   - [x] USART
-  - [ ] I2C
+  - [x] I2C
   - [ ] SPI
   - [x] ESIG
   - [x] FLASH
@@ -28,8 +28,8 @@
   - [ ] WWDG
   - [ ] PFIC
   - [ ] EXTI
-  - [ ] STK
-  - [ ] GPIO
+  - [x] STK
+  - [x] GPIO
   - [ ] AFIO
   - [ ] DMA
   - [ ] ADC
@@ -47,6 +47,7 @@
   - [x] crt0.S
   - [x] linker
   - [x] makefile/cmake
+  - [ ] extend to support multiple projects
 - [ ] Examples
   - [ ] Blinky
   - [ ] Hello world

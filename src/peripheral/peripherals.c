@@ -4,8 +4,6 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-/* This is just a temporary main.c for buildsystem testing */
-
 #include "peripheral/adc.h"
 #include "peripheral/adtm.h"
 #include "peripheral/afio.h"
@@ -15,6 +13,7 @@
 #include "peripheral/exti.h"
 #include "peripheral/flash.h"
 #include "peripheral/gpio.h"
+#include "peripheral/i2c.h"
 #include "peripheral/iwdg.h"
 #include "peripheral/pfic.h"
 #include "peripheral/pwr.h"
@@ -35,6 +34,7 @@ volatile per_flash_t *FLASH = (volatile per_flash_t *)FLASH_REG_OFFSET;
 volatile per_gpio_t *GPIO_A = (volatile per_gpio_t *)GPIO_A_REG_OFFSET;
 volatile per_gpio_t *GPIO_C = (volatile per_gpio_t *)GPIO_C_REG_OFFSET;
 volatile per_gpio_t *GPIO_D = (volatile per_gpio_t *)GPIO_D_REG_OFFSET;
+volatile per_i2c_t *I2C = (volatile per_i2c_t *)I2C_REG_OFFSET;
 volatile per_iwdg_t *IWDG = (volatile per_iwdg_t *)IWDG_REG_OFFSET;
 volatile per_pfic_t *PFIC = (volatile per_pfic_t *)PFIC_REG_OFFSET;
 volatile per_pwr_t *PWR = (volatile per_pwr_t *)PWR_REG_OFFSET;
