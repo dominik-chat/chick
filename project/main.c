@@ -21,6 +21,7 @@
 #include "peripheral/pfic.h"
 #include "peripheral/pwr.h"
 #include "peripheral/rcc.h"
+#include "peripheral/spi.h"
 #include "peripheral/stk.h"
 #include "peripheral/usart.h"
 #include "peripheral/user_words.h"

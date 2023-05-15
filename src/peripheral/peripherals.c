@@ -19,6 +19,7 @@
 #include "peripheral/pfic.h"
 #include "peripheral/pwr.h"
 #include "peripheral/rcc.h"
+#include "peripheral/spi.h"
 #include "peripheral/stk.h"
 #include "peripheral/usart.h"
 #include "peripheral/user_words.h"
@@ -41,6 +42,7 @@ volatile per_iwdg_t *IWDG = (volatile per_iwdg_t *)IWDG_REG_OFFSET;
 volatile per_pfic_t *PFIC = (volatile per_pfic_t *)PFIC_REG_OFFSET;
 volatile per_pwr_t *PWR = (volatile per_pwr_t *)PWR_REG_OFFSET;
 volatile per_rcc_t *RCC = (volatile per_rcc_t *)RCC_REG_OFFSET;
+volatile per_spi_t *SPI = (volatile per_spi_t *)SPI_REG_OFFSET;
 volatile per_stk_t *STK = (volatile per_stk_t *)STK_REG_OFFSET;
 volatile per_usart_t *USART = (volatile per_usart_t *)USART_REG_OFFSET;
 volatile per_userw_t *USERW = (volatile per_userw_t *)USER_WORDS_REG_OFFSET;

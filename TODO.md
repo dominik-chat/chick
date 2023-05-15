@@ -1,6 +1,6 @@
 # TODO
 
-- [ ] Peripheral register definition
+- [x] Peripheral register definition
   - [x] PWR
   - [x] RCC
   - [x] IWDG
@@ -16,7 +16,7 @@
   - [x] GPTM
   - [x] USART
   - [x] I2C
-  - [ ] SPI
+  - [x] SPI
   - [x] ESIG
   - [x] FLASH
   - [x] USER_WORDS
