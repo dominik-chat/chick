@@ -14,7 +14,7 @@ __weak __irq void IRQ_nmi(void)
 	while(1);
 }
 
-__weak __irq void IRQ_hardfault(void)
+__weak __irq void IRQ_exception(void)
 {
 	while(1);
 }

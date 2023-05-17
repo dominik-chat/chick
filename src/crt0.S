@@ -13,7 +13,7 @@ _start:
 	j	reset_handler
 	.word	0
 	.word	IRQ_nmi
-	.word	IRQ_hardfault
+	.word	IRQ_exception
 	.word	0
 	.word	0
 	.word	0

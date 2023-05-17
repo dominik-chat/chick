@@ -29,18 +29,25 @@
 
 #include "hal/esig.h"
 #include "hal/gpio.h"
+#include "hal/pfic.h"
 #include "hal/rcc.h"
 #include "hal/stk.h"
 
+volatile uint32_t time = 0;
+
+__attribute__((interrupt)) void IRQ_systick(void)
+{
+	time++;
+	STK_clear_intflag();
+}
+
 void delay(void)
 {
-	bool flag = false;
+	uint32_t tmp;
 
-	while(!flag) {
-		STK_get_intflag(&flag);
-	}
+	tmp = time + 250;
 
-	STK_clear_intflag();
+	while (time != tmp);
 }
 
 int main(void)
@@ -56,12 +63,14 @@ int main(void)
 	/* GPIO init */
 	RCC_enable_peripherial(APB_GPIOD);
 	GPIO_init_out(PORT_D, 4, CONF_OUT_PUSHPULL, SPEED_50);
+	PFIC_enable_int(VECT_STK);
 
 	/* Systick init */
 	STK_set_cnt(0);
 	STK_set_prescaler(1);
 	STK_enable_autoreload();
-	STK_set_cmp(24000000);	/* 500ms */
+	STK_set_cmp(48000);	/* 1ms */
+	STK_enable_int();
 	STK_enable();
 
 	while(1) {

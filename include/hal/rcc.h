@@ -92,6 +92,4 @@ HAL_err RCC_get_reset_flag(uint8_t *flag);
 
 HAL_err RCC_clear_reset_flags(void);
 
-/* TODO: Other register HALs */
-
 #endif /* _HAL_RCC_H_ */

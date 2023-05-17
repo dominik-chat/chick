@@ -26,7 +26,7 @@
   - [x] RCC
   - [ ] IWDG
   - [ ] WWDG
-  - [ ] PFIC
+  - [x] PFIC
   - [ ] EXTI
   - [x] STK
   - [x] GPIO

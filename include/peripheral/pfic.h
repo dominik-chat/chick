@@ -18,8 +18,8 @@
 #define PFIC_ISR1_INTENSTA_14_MASK	(0x01ul << 14)
 #define PFIC_ISR1_INTENSTA_14		(0x01ul << 14)
 
-#define PFIC_ISR1_INTENSTA_12_MASK	(0x01ul << 14)
-#define PFIC_ISR1_INTENSTA_12		(0x01ul << 14)
+#define PFIC_ISR1_INTENSTA_12_MASK	(0x01ul << 12)
+#define PFIC_ISR1_INTENSTA_12		(0x01ul << 12)
 
 #define PFIC_ISR1_INTENSTA_2_3_MASK	(0x03ul << 2)
 #define PFIC_ISR1_INTENSTA_2_3(x)	(0x01ul << (x))
@@ -35,8 +35,8 @@
 #define PFIC_IPR1_PENDSTA_14_MASK	(0x01ul << 14)
 #define PFIC_IPR1_PENDSTA_14		(0x01ul << 14)
 
-#define PFIC_IPR1_PENDSTA_12_MASK	(0x01ul << 14)
-#define PFIC_IPR1_PENDSTA_12		(0x01ul << 14)
+#define PFIC_IPR1_PENDSTA_12_MASK	(0x01ul << 12)
+#define PFIC_IPR1_PENDSTA_12		(0x01ul << 12)
 
 #define PFIC_IPR1_PENDSTA_2_3_MASK	(0x03ul << 2)
 #define PFIC_IPR1_PENDSTA_2_3(x)	(0x01ul << (x))
@@ -64,8 +64,8 @@
 #define PFIC_GISR_GACTSTA		(0x01ul << 9)
 
 #define PFIC_GISR_NESTSTA_MASK		(0xFFul << 0)
-#define PFIC_GISR_NESTSTA_1(x)		(0x01ul << 0)
-#define PFIC_GISR_NESTSTA_2(x)		(0x03ul << 0)
+#define PFIC_GISR_NESTSTA_1		(0x01ul << 0)
+#define PFIC_GISR_NESTSTA_2		(0x03ul << 0)
 
 /* VTFIDR */
 #define PFIC_VTFIDR_VTFID1_MASK		(0xFFul << 8)
@@ -95,11 +95,11 @@
 #define PFIC_IENR1_INTEN_14_MASK	(0x01ul << 14)
 #define PFIC_IENR1_INTEN_14		(0x01ul << 14)
 
-#define PFIC_IENR1_INTEN_12_MASK	(0x01ul << 14)
-#define PFIC_IENR1_INTEN_12		(0x01ul << 14)
+#define PFIC_IENR1_INTEN_12_MASK	(0x01ul << 12)
+#define PFIC_IENR1_INTEN_12		(0x01ul << 12)
 
 #define PFIC_IENR1_INTEN_2_3_MASK	(0x03ul << 2)
-#define PFIC_IENR1_INTEN_2_3(x)	(0x01ul << (x))
+#define PFIC_IENR1_INTEN_2_3(x)		(0x01ul << (x))
 
 /* IENR2 */
 #define PFIC_IENR2_INTEN_32_38_MASK	(0x7Ful << 0)
@@ -112,8 +112,8 @@
 #define PFIC_IRER1_INTRSET_14_MASK	(0x01ul << 14)
 #define PFIC_IRER1_INTRSET_14		(0x01ul << 14)
 
-#define PFIC_IRER1_INTRSET_12_MASK	(0x01ul << 14)
-#define PFIC_IRER1_INTRSET_12		(0x01ul << 14)
+#define PFIC_IRER1_INTRSET_12_MASK	(0x01ul << 12)
+#define PFIC_IRER1_INTRSET_12		(0x01ul << 12)
 
 #define PFIC_IRER1_INTRSET_2_3_MASK	(0x03ul << 2)
 #define PFIC_IRER1_INTRSET_2_3(x)	(0x01ul << (x))
@@ -129,8 +129,8 @@
 #define PFIC_IPSR1_PENDSET_14_MASK	(0x01ul << 14)
 #define PFIC_IPSR1_PENDSET_14		(0x01ul << 14)
 
-#define PFIC_IPSR1_PENDSET_12_MASK	(0x01ul << 14)
-#define PFIC_IPSR1_PENDSET_12		(0x01ul << 14)
+#define PFIC_IPSR1_PENDSET_12_MASK	(0x01ul << 12)
+#define PFIC_IPSR1_PENDSET_12		(0x01ul << 12)
 
 #define PFIC_IPSR1_PENDSET_2_3_MASK	(0x03ul << 2)
 #define PFIC_IPSR1_PENDSET_2_3(x)	(0x01ul << (x))
@@ -146,8 +146,8 @@
 #define PFIC_IPRR1_PENDRESET_14_MASK	(0x01ul << 14)
 #define PFIC_IPRR1_PENDRESET_14		(0x01ul << 14)
 
-#define PFIC_IPRR1_PENDRESET_12_MASK	(0x01ul << 14)
-#define PFIC_IPRR1_PENDRESET_12		(0x01ul << 14)
+#define PFIC_IPRR1_PENDRESET_12_MASK	(0x01ul << 12)
+#define PFIC_IPRR1_PENDRESET_12		(0x01ul << 12)
 
 #define PFIC_IPRR1_PENDRESET_2_3_MASK	(0x03ul << 2)
 #define PFIC_IPRR1_PENDRESET_2_3(x)	(0x01ul << (x))
@@ -163,8 +163,8 @@
 #define PFIC_IACTR1_IACTS_14_MASK	(0x01ul << 14)
 #define PFIC_IACTR1_IACTS_14		(0x01ul << 14)
 
-#define PFIC_IACTR1_IACTS_12_MASK	(0x01ul << 14)
-#define PFIC_IACTR1_IACTS_12		(0x01ul << 14)
+#define PFIC_IACTR1_IACTS_12_MASK	(0x01ul << 12)
+#define PFIC_IACTR1_IACTS_12		(0x01ul << 12)
 
 #define PFIC_IACTR1_IACTS_2_3_MASK	(0x03ul << 2)
 #define PFIC_IACTR1_IACTS_2_3(x)	(0x01ul << (x))
@@ -176,6 +176,7 @@
 /* IPRIOR */
 #define PFIC_IPRIOR_IP_MASK(x)		(0xFFul << ((x) % 4))
 #define PFIC_IPRIOR_IP_REG(x)		((x) / 4)
+#define PFIC_IPRIOR_IP(x, y)		((y) << ((x) % 4))
 
 /* SCTLR */
 #define PFIC_SCTLR_SYSRESET_MASK	(0x01ul << 31)
@@ -226,7 +227,7 @@ typedef struct {
 	uint32_t RESERVED9[30];		/**< RESERVED */
 	uint32_t IACTR1;		/**< Interrupt activation status 1 */
 	uint32_t IACTR2;		/**< Interrupt activation status 2 */
-	uint32_t RESERVED10[30];	/**< RESERVED */
+	uint32_t RESERVED10[62];	/**< RESERVED */
 	uint32_t IPRIOR[64];		/**< Interrupt priority configuration */
 	uint32_t RESERVED11[516];	/**< RESERVED */
 	uint32_t SCTLR;			/**< System control register */
