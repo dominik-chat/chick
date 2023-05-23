@@ -7,6 +7,7 @@
 #ifndef _HAL_ESIG_H_
 #define _HAL_ESIG_H_
 
+#include <stdint.h>
 #include "hal/errno.h"
 
 HAL_err ESIG_get_flash_size(uint32_t *size);

@@ -11,6 +11,8 @@ typedef enum {
 	HAL_OK,
 	HAL_EIO,
 	HAL_EINVAL,
+	HAL_EACCESS,
+	HAL_EBUSY,
 	HAL_ERR_CNT
 } HAL_err;
 

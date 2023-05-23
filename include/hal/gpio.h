@@ -7,6 +7,7 @@
 #ifndef _HAL_GPIO_H_
 #define _HAL_GPIO_H_
 
+#include <stdint.h>
 #include <stdbool.h>
 #include "hal/errno.h"
 

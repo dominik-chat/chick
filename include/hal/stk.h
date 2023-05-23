@@ -7,6 +7,7 @@
 #ifndef _HAL_STK_H_
 #define _HAL_STK_H_
 
+#include <stdint.h>
 #include <stdbool.h>
 #include "hal/errno.h"
 

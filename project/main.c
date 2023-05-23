@@ -29,6 +29,7 @@
 
 #include "hal/esig.h"
 #include "hal/gpio.h"
+#include "hal/flash.h"
 #include "hal/pfic.h"
 #include "hal/rcc.h"
 #include "hal/stk.h"
@@ -56,7 +57,7 @@ int main(void)
 	RCC_init_clock(CLOCK_HSE);
 	RCC_set_pll_src(CLOCK_HSE);
 	RCC_init_clock(CLOCK_PLL);
-	FLASH->ACTLR = FLASH_ACTLR_LATENCY_1;
+	FLASH_set_latency(LATENCY_1);
 	RCC_set_sysclk_src(CLOCK_PLL);
 	RCC_set_ahb_prescaler(1);
 
