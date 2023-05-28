@@ -11,85 +11,261 @@
 #include <stdbool.h>
 #include "hal/errno.h"
 
-#define CLOCK_NONE	0
-#define CLOCK_SYSCLK	1
-#define CLOCK_HSI	2
-#define CLOCK_HSE	3
-#define CLOCK_HSE_BYP	4
-#define CLOCK_PLL	5
-#define CLOCK_LSI	6
+typedef enum {
+	CLOCK_NONE,
+	CLOCK_SYSCLK,
+	CLOCK_HSI,
+	CLOCK_HSE,
+	CLOCK_HSE_BYP,
+	CLOCK_PLL,
+	CLOCK_LSI
+} rcc_clock_t;
 
-#define INT_CSS		0
-#define INT_PLLRDY	1
-#define INT_HSERDY	2
-#define INT_HSIRDY	3
-#define INT_LSIRDY	4
+typedef enum {
+	INT_CSS,
+	INT_PLLRDY,
+	INT_HSERDY,
+	INT_HSIRDY,
+	INT_LSIRDY
+} rcc_int_t;
 
-#define APB_USART1	0
-#define APB_SPI1	1
-#define APB_TIM1	2
-#define APB_ADC1	3
-#define APB_GPIOD	4
-#define APB_GPIOC	5
-#define APB_GPIOA	6
-#define APB_AFIO	7
-#define APB_PWR		8
-#define APB_I2C1	9
-#define APB_WWDG	10
-#define APB_TIM2	11
-#define AHB_DMA1	12
+typedef enum {
+	APB_USART1,
+	APB_SPI1,
+	APB_TIM1,
+	APB_ADC1,
+	APB_GPIOD,
+	APB_GPIOC,
+	APB_GPIOA,
+	APB_AFIO,
+	APB_PWR,
+	APB_I2C1,
+	APB_WWDG,
+	APB_TIM2,
+	AHB_DMA1
+} rcc_per_t;
 
-#define RESET_LOW_POWER	0
-#define RESET_WWDG	1
-#define RESET_IWDG	2
-#define RESET_SOFT	3
-#define RESET_POR	4
-#define RESET_PIN	5
+typedef enum {
+	RESET_LOW_POWER,
+	RESET_WWDG,
+	RESET_IWDG,
+	RESET_SOFT,
+	RESET_POR,
+	RESET_PIN
+} rcc_rst_t;
 
-HAL_err	RCC_init_clock(uint8_t clock);
+/**
+ * @brief Initialize clock.
+ *
+ * @param clock Clock selection.
+ *
+ * @retval HAL_OK Success.
+ * @retval Otherwise errno code.
+ */
+HAL_err	RCC_init_clock(rcc_clock_t clock);
 
-HAL_err	RCC_deinit_clock(uint8_t clock);
+/**
+ * @brief Deinitialize clock.
+ *
+ * @param clock Clock selection.
+ *
+ * @retval HAL_OK Success.
+ * @retval Otherwise errno code.
+ */
+HAL_err	RCC_deinit_clock(rcc_clock_t clock);
 
-HAL_err RCC_get_hsical(uint8_t *cal);
+/**
+ * @brief Get HSI calibration value.
+ *
+ * @retval Calibration value.
+ */
+uint8_t RCC_get_hsical(void)
+	__attribute__((warn_unused_result));
 
+/**
+ * @brief Trim HSI clock.
+ *
+ * @param trim Trim value.
+ *
+ * @retval HAL_OK Success.
+ * @retval Otherwise errno code.
+ */
 HAL_err RCC_trim_hsi(int8_t trim);
 
-HAL_err RCC_enable_css(void);
+/**
+ * @brief Enable Clock Security System.
+ */
+void RCC_enable_css(void);
 
-HAL_err RCC_disable_css(void);
+/**
+ * @brief Disable Clock Security System.
+ */
+void RCC_disable_css(void);
 
-HAL_err RCC_set_mco(uint8_t clock);
+/**
+ * @brief Tie master clock output pin to clock.
+ *
+ * @param clock Clock.
+ *
+ * @retval HAL_OK Success.
+ * @retval Otherwise errno code.
+ */
+HAL_err RCC_set_mco(rcc_clock_t clock);
 
-HAL_err	RCC_set_pll_src(uint8_t clock);
+/**
+ * @brief Set PLL clock source.
+ *
+ * @param clock Clock.
+ *
+ * @retval HAL_OK Success.
+ * @retval Otherwise errno code.
+ */
+HAL_err	RCC_set_pll_src(rcc_clock_t clock);
 
+/**
+ * @brief Set ADC prescaler divisor.
+ *
+ * @param prescaler Divisor.
+ *
+ * @retval HAL_OK Success.
+ * @retval Otherwise errno code.
+ */
 HAL_err RCC_set_adc_prescaler(uint8_t prescaler);
 
+/**
+ * @brief Set AHB prescaler divisor.
+ *
+ * @param prescaler Divisor.
+ *
+ * @retval HAL_OK Success.
+ * @retval Otherwise errno code.
+ */
 HAL_err RCC_set_ahb_prescaler(uint16_t prescaler);
 
-HAL_err RCC_get_sysclk_src(uint8_t *clock);
+/**
+ * @brief Get current system clock.
+ *
+ * @param clock Pointer to clock.
+ *
+ * @retval HAL_OK Success.
+ * @retval Otherwise errno code.
+ */
+HAL_err RCC_get_sysclk_src(rcc_clock_t *clock);
 
-HAL_err RCC_set_sysclk_src(uint8_t clock);
+/**
+ * @brief Set current system clock.
+ *
+ * @param clock Clock.
+ *
+ * @retval HAL_OK Success.
+ * @retval Otherwise errno code.
+ */
+HAL_err RCC_set_sysclk_src(rcc_clock_t clock);
 
-HAL_err RCC_get_intflag(uint8_t interrupt, bool *flag);
+/**
+ * @brief Get interrupt flag.
+ *
+ * @param interrupt Interrupt.
+ * @param flag pointer to flag.
+ *
+ * @retval HAL_OK Success.
+ * @retval Otherwise errno code.
+ */
+HAL_err RCC_get_intflag(rcc_int_t interrupt, bool *flag);
 
-HAL_err RCC_clear_intflag(uint8_t interrupt);
+/**
+ * @brief Clear interrupt flag.
+ *
+ * @param interrupt Interrupt.
+ *
+ * @retval HAL_OK Success.
+ * @retval Otherwise errno code.
+ */
+HAL_err RCC_clear_intflag(rcc_int_t interrupt);
 
-HAL_err RCC_enable_int(uint8_t interrupt);
+/**
+ * @brief Enable interrupt.
+ *
+ * @param interrupt Interrupt.
+ *
+ * @retval HAL_OK Success.
+ * @retval Otherwise errno code.
+ */
+HAL_err RCC_enable_int(rcc_int_t interrupt);
 
-HAL_err RCC_disable_int(uint8_t interrupt);
+/**
+ * @brief Disable interrupt.
+ *
+ * @param interrupt Interrupt.
+ *
+ * @retval HAL_OK Success.
+ * @retval Otherwise errno code.
+ */
+HAL_err RCC_disable_int(rcc_int_t interrupt);
 
-HAL_err RCC_reset_peripherial(uint8_t peripheral);
+/**
+ * @brief Reset peripheral.
+ *
+ * @param peripheral Peripheral.
+ *
+ * @retval HAL_OK Success.
+ * @retval Otherwise errno code.
+ */
+HAL_err RCC_reset_peripherial(rcc_per_t peripheral);
 
-HAL_err RCC_enable_peripherial(uint8_t peripheral);
+/**
+ * @brief Enable clock for peripheral.
+ *
+ * @param peripheral Peripheral.
+ *
+ * @retval HAL_OK Success.
+ * @retval Otherwise errno code.
+ */
+HAL_err RCC_enable_peripherial(rcc_per_t peripheral);
 
-HAL_err RCC_disable_peripherial(uint8_t peripheral);
+/**
+ * @brief Disable clock for peripheral.
+ *
+ * @param peripheral Peripheral.
+ *
+ * @retval HAL_OK Success.
+ * @retval Otherwise errno code.
+ */
+HAL_err RCC_disable_peripherial(rcc_per_t peripheral);
 
-HAL_err RCC_enable_SRAM_sleep(void);
+/**
+ * @brief Enable SRAM clock in sleep mode.
+ */
+void RCC_enable_SRAM_sleep(void);
 
-HAL_err RCC_disble_SRAM_sleep(void);
+/**
+ * @brief Disable SRAM clock in sleep mode.
+ */
+void RCC_disable_SRAM_sleep(void);
 
-HAL_err RCC_get_reset_flag(uint8_t *flag);
+/**
+ * @brief Enable DMA clock in sleep mode.
+ */
+void RCC_enable_DMA_sleep(void);
 
-HAL_err RCC_clear_reset_flags(void);
+/**
+ * @brief Disable DMA clock in sleep mode.
+ */
+void RCC_disable_DMA_sleep(void);
+
+/**
+ * @brief Get reset flag.
+ *
+ * @param flag Pointer to flag.
+ *
+ * @retval HAL_OK Success.
+ * @retval Otherwise errno code.
+ */
+HAL_err RCC_get_reset_flag(rcc_rst_t *flag);
+
+/**
+ * @brief Clear reset flags.
+ */
+void RCC_clear_reset_flags(void);
 
 #endif /* _HAL_RCC_H_ */

@@ -10,8 +10,22 @@
 #include <stdint.h>
 #include "hal/errno.h"
 
-HAL_err ESIG_get_flash_size(uint32_t *size);
+/**
+ * @brief Get flash size in bytes.
+ *
+ * @retval Flash size in bytes.
+ */
+uint32_t ESIG_get_flash_size(void)
+	__attribute__((warn_unused_result));
 
+/**
+ * @brief Get UID words.
+ *
+ * @param uid Pointer to 3 word storage for UID
+ *
+ * @retval HAL_OK Success.
+ * @retval Otherwise errno code.
+ */
 HAL_err ESIG_get_uid(uint32_t *uid);
 
 #endif /* _HAL_ESIG_H_ */

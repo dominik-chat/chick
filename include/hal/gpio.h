@@ -11,37 +11,134 @@
 #include <stdbool.h>
 #include "hal/errno.h"
 
-#define PORT_A			0
-#define PORT_C			2
-#define PORT_D			3
+typedef enum {
+	PORT_A,
+	PORT_C,
+	PORT_D
+} gpio_port_t;
 
-#define CONF_IN_ANALOG		0
-#define CONF_IN_FLOATING	1
-#define CONF_IN_PUSHPULL	2
+typedef enum {
+	IN_ANALOG,
+	IN_FLOATING,
+	IN_PUSHPULL,
+	OUT_PUSHPULL,
+	OUT_OPENDRAIN,
+	OUT_PUSHPULL_MUL,
+	OUT_OPENDRAIN_MUL
+} gpio_conf_t;
 
-#define CONF_OUT_PUSHPULL	0
-#define CONF_OUT_OPENDRAIN	1
-#define CONF_OUT_PUSHPULL_MUL	2
-#define CONF_OUT_OPENDRAIN_MUL	3
+typedef enum {
+	SPEED_2,
+	SPEED_10,
+	SPEED_50
+} gpio_speed_t;
 
-#define SPEED_2			0
-#define SPEED_10		1
-#define SPEED_50		2
+/**
+ * @brief Initialize gpio input.
+ *
+ * This function initializes pin as an input.
+ *
+ * @param port Port.
+ * @param pin Pin number.
+ * @param conf Configuration.
+ *
+ * @retval HAL_OK Success.
+ * @retval Otherwise errno code.
+ */
+HAL_err GPIO_init_in(gpio_port_t port, uint8_t pin, gpio_conf_t conf);
 
-HAL_err GPIO_init_in(uint8_t port, uint8_t pin, uint8_t conf);
+/**
+ * @brief Initialize gpio output.
+ *
+ * This function initializes pin as an output.
+ *
+ * @param port Port.
+ * @param pin Pin number.
+ * @param conf Configuration.
+ * @param speed Speed setting.
+ *
+ * @retval HAL_OK Success.
+ * @retval Otherwise errno code.
+ */
+HAL_err GPIO_init_out(gpio_port_t port, uint8_t pin, gpio_conf_t conf, gpio_speed_t speed);
 
-HAL_err GPIO_init_out(uint8_t port, uint8_t pin, uint8_t conf, uint8_t speed);
+/**
+ * @brief Get port states.
+ *
+ * This function reads whole port states.
+ *
+ * @param port Port.
+ * @param val Pointer to port data buffer.
+ *
+ * @retval HAL_OK Success.
+ * @retval Otherwise errno code.
+ */
+HAL_err GPIO_get_port(gpio_port_t port, uint8_t *val);
 
-HAL_err GPIO_get_port(uint8_t port, uint8_t *val);
+/**
+ * @brief Get pin state.
+ *
+ * This function reads pin state.
+ *
+ * @param port Port.
+ * @param pin Pin number.
+ * @param val Pointer to pin data buffer.
+ *
+ * @retval HAL_OK Success.
+ * @retval Otherwise errno code.
+ */
+HAL_err GPIO_get_pin(gpio_port_t port, uint8_t pin, bool *val);
 
-HAL_err GPIO_get_pin(uint8_t port, uint8_t pin, bool *val);
+/**
+ * @brief Set port state.
+ *
+ * This function sets whole port states.
+ *
+ * @param port Port.
+ * @param val Port states.
+ *
+ * @retval HAL_OK Success.
+ * @retval Otherwise errno code.
+ */
+HAL_err GPIO_set_port(gpio_port_t port, uint8_t val);
 
-HAL_err GPIO_set_port(uint8_t port, uint8_t val);
+/**
+ * @brief Set pin state.
+ *
+ * This function sets pin state to active.
+ *
+ * @param port Port.
+ * @param pin Pin number.
+ *
+ * @retval HAL_OK Success.
+ * @retval Otherwise errno code.
+ */
+HAL_err GPIO_set_pin(gpio_port_t port, uint8_t pin);
 
-HAL_err GPIO_set_pin(uint8_t port, uint8_t pin);
+/**
+ * @brief Clear pin state.
+ *
+ * This function sets pin state to inactive.
+ *
+ * @param port Port.
+ * @param pin Pin number.
+ *
+ * @retval HAL_OK Success.
+ * @retval Otherwise errno code.
+ */
+HAL_err GPIO_clear_pin(gpio_port_t port, uint8_t pin);
 
-HAL_err GPIO_clear_pin(uint8_t port, uint8_t pin);
-
-HAL_err GPIO_lock_port(uint8_t port, uint8_t mask);
+/**
+ * @brief Lock port configuration.
+ *
+ * This function locks port configuration according to mask.
+ *
+ * @param port Port.
+ * @param mask Pin bitmask to use with lock.
+ *
+ * @retval HAL_OK Success.
+ * @retval Otherwise errno code.
+ */
+HAL_err GPIO_lock_port(gpio_port_t port, uint8_t mask);
 
 #endif /* _HAL_GPIO_H_ */

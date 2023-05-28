@@ -8,7 +8,7 @@
 #include "hal/rcc.h"
 #include "hal_internal.h"
 
-HAL_err	RCC_init_clock(uint8_t clock)
+HAL_err	RCC_init_clock(rcc_clock_t clock)
 {
 	switch (clock) {
 		case CLOCK_LSI:
@@ -43,7 +43,7 @@ HAL_err	RCC_init_clock(uint8_t clock)
 	return HAL_OK;
 }
 
-HAL_err	RCC_deinit_clock(uint8_t clock)
+HAL_err	RCC_deinit_clock(rcc_clock_t clock)
 {
 	switch (clock) {
 		case CLOCK_LSI:
@@ -77,14 +77,9 @@ HAL_err	RCC_deinit_clock(uint8_t clock)
 	return HAL_OK;
 }
 
-HAL_err RCC_get_hsical(uint8_t *cal)
+uint8_t RCC_get_hsical(void)
 {
-	if (!cal) {
-		return HAL_EINVAL;
-	}
-
-	*cal = RCC_CTRL_HSICAL_VAL(RCC->CTRL);
-	return HAL_OK;
+	return RCC_CTRL_HSICAL_VAL(RCC->CTRL);
 }
 
 HAL_err RCC_trim_hsi(int8_t trim)
@@ -101,19 +96,17 @@ HAL_err RCC_trim_hsi(int8_t trim)
 	return HAL_OK;
 }
 
-HAL_err RCC_enable_css(void)
+void RCC_enable_css(void)
 {
 	BIT_SET(RCC->CTRL, RCC_CTRL_CSSON);
-	return HAL_OK;
 }
 
-HAL_err RCC_disable_css(void)
+void RCC_disable_css(void)
 {
 	BIT_CLEAR(RCC->CTRL, RCC_CTRL_CSSON);
-	return HAL_OK;
 }
 
-HAL_err RCC_set_mco(uint8_t clock)
+HAL_err RCC_set_mco(rcc_clock_t clock)
 {
 	switch (clock) {
 		case CLOCK_NONE:
@@ -144,7 +137,7 @@ HAL_err RCC_set_mco(uint8_t clock)
 	return HAL_OK;
 }
 
-HAL_err	RCC_set_pll_src(uint8_t clock)
+HAL_err	RCC_set_pll_src(rcc_clock_t clock)
 {
 	switch (clock) {
 		case CLOCK_HSI:
@@ -282,7 +275,7 @@ HAL_err RCC_set_ahb_prescaler(uint16_t prescaler)
 	return HAL_OK;
 }
 
-HAL_err RCC_get_sysclk_src(uint8_t *clock)
+HAL_err RCC_get_sysclk_src(rcc_clock_t *clock)
 {
 	uint32_t tmp;
 
@@ -300,7 +293,7 @@ HAL_err RCC_get_sysclk_src(uint8_t *clock)
 	return HAL_OK;
 }
 
-HAL_err RCC_set_sysclk_src(uint8_t clock)
+HAL_err RCC_set_sysclk_src(rcc_clock_t clock)
 {
 	switch (clock) {
 		case CLOCK_HSI:
@@ -322,7 +315,7 @@ HAL_err RCC_set_sysclk_src(uint8_t clock)
 	return HAL_OK;
 }
 
-HAL_err RCC_get_intflag(uint8_t interrupt, bool *flag)
+HAL_err RCC_get_intflag(rcc_int_t interrupt, bool *flag)
 {
 	if (!flag) {
 		return HAL_EINVAL;
@@ -356,7 +349,7 @@ HAL_err RCC_get_intflag(uint8_t interrupt, bool *flag)
 	return HAL_OK;
 }
 
-HAL_err RCC_clear_intflag(uint8_t interrupt)
+HAL_err RCC_clear_intflag(rcc_int_t interrupt)
 {
 	switch (interrupt) {
 		case INT_CSS:
@@ -386,7 +379,7 @@ HAL_err RCC_clear_intflag(uint8_t interrupt)
 	return HAL_OK;
 }
 
-HAL_err RCC_enable_int(uint8_t interrupt)
+HAL_err RCC_enable_int(rcc_int_t interrupt)
 {
 	switch (interrupt) {
 		case INT_PLLRDY:
@@ -412,7 +405,7 @@ HAL_err RCC_enable_int(uint8_t interrupt)
 	return HAL_OK;
 }
 
-HAL_err RCC_disable_int(uint8_t interrupt)
+HAL_err RCC_disable_int(rcc_int_t interrupt)
 {
 	switch (interrupt) {
 		case INT_PLLRDY:
@@ -438,7 +431,7 @@ HAL_err RCC_disable_int(uint8_t interrupt)
 	return HAL_OK;
 }
 
-HAL_err RCC_reset_peripherial(uint8_t peripheral)
+HAL_err RCC_reset_peripherial(rcc_per_t peripheral)
 {
 	switch (peripheral) {
 		case APB_USART1:
@@ -496,7 +489,7 @@ HAL_err RCC_reset_peripherial(uint8_t peripheral)
 	return HAL_OK;
 }
 
-HAL_err RCC_enable_peripherial(uint8_t peripheral)
+HAL_err RCC_enable_peripherial(rcc_per_t peripheral)
 {
 	switch (peripheral) {
 		case APB_USART1:
@@ -558,7 +551,7 @@ HAL_err RCC_enable_peripherial(uint8_t peripheral)
 	return HAL_OK;
 }
 
-HAL_err RCC_disable_peripherial(uint8_t peripheral)
+HAL_err RCC_disable_peripherial(rcc_per_t peripheral)
 {
 	switch (peripheral) {
 		case APB_USART1:
@@ -620,19 +613,27 @@ HAL_err RCC_disable_peripherial(uint8_t peripheral)
 	return HAL_OK;
 }
 
-HAL_err RCC_enable_SRAM_sleep(void)
+void RCC_enable_SRAM_sleep(void)
 {
 	BIT_SET(RCC->AHBPCENR, RCC_AHBPCENR_SRAMEN);
-	return HAL_OK;
 }
 
-HAL_err RCC_disable_SRAM_sleep(void)
+void RCC_disable_SRAM_sleep(void)
 {
 	BIT_CLEAR(RCC->AHBPCENR, RCC_AHBPCENR_SRAMEN);
-	return HAL_OK;
 }
 
-HAL_err RCC_get_reset_flag(uint8_t *flag)
+void RCC_enable_DMA_sleep(void)
+{
+	BIT_SET(RCC->AHBPCENR, RCC_AHBPCENR_DMA1EN);
+}
+
+void RCC_disable_DMA_sleep(void)
+{
+	BIT_CLEAR(RCC->AHBPCENR, RCC_AHBPCENR_DMA1EN);
+}
+
+HAL_err RCC_get_reset_flag(rcc_rst_t *flag)
 {
 	if (!flag) {
 		return HAL_EINVAL;
@@ -657,8 +658,7 @@ HAL_err RCC_get_reset_flag(uint8_t *flag)
 	return HAL_OK;
 }
 
-HAL_err RCC_clear_reset_flags(void)
+void RCC_clear_reset_flags(void)
 {
 	BIT_SET(RCC->RSTSCKR, RCC_RSTSCKR_RMVF);
-	return HAL_OK;
 }

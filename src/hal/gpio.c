@@ -8,7 +8,7 @@
 #include "hal/gpio.h"
 #include "hal_internal.h"
 
-HAL_err GPIO_init_in(uint8_t port, uint8_t pin, uint8_t conf)
+HAL_err GPIO_init_in(gpio_port_t port, uint8_t pin, gpio_conf_t conf)
 {
 	volatile per_gpio_t *gpio;
 	uint32_t mask;
@@ -37,15 +37,15 @@ HAL_err GPIO_init_in(uint8_t port, uint8_t pin, uint8_t conf)
 
 	mask = GPIO_CFGLR_CNF_MASK(pin);
 	switch (conf) {
-		case CONF_IN_ANALOG:
+		case IN_ANALOG:
 		val = GPIO_CFGLR_CNF_ANA(pin);
 		break;
 
-		case CONF_IN_FLOATING:
+		case IN_FLOATING:
 		val = GPIO_CFGLR_CNF_FLT(pin);
 		break;
 
-		case CONF_IN_PUSHPULL:
+		case IN_PUSHPULL:
 		val = GPIO_CFGLR_CNF_PULL(pin);
 		break;
 
@@ -61,7 +61,7 @@ HAL_err GPIO_init_in(uint8_t port, uint8_t pin, uint8_t conf)
 	return HAL_OK;
 }
 
-HAL_err GPIO_init_out(uint8_t port, uint8_t pin, uint8_t conf, uint8_t speed)
+HAL_err GPIO_init_out(gpio_port_t port, uint8_t pin, gpio_conf_t conf, gpio_speed_t speed)
 {
 	volatile per_gpio_t *gpio;
 	uint32_t mask;
@@ -90,19 +90,19 @@ HAL_err GPIO_init_out(uint8_t port, uint8_t pin, uint8_t conf, uint8_t speed)
 
 	mask = GPIO_CFGLR_CNF_MASK(pin);
 	switch (conf) {
-		case CONF_OUT_PUSHPULL:
+		case OUT_PUSHPULL:
 		val = GPIO_CFGLR_CNF_PUSH(pin);
 		break;
 
-		case CONF_OUT_OPENDRAIN:
+		case OUT_OPENDRAIN:
 		val = GPIO_CFGLR_CNF_OPEN(pin);
 		break;
 
-		case CONF_OUT_PUSHPULL_MUL:
+		case OUT_PUSHPULL_MUL:
 		val = GPIO_CFGLR_CNF_MPUSH(pin);
 		break;
 
-		case CONF_OUT_OPENDRAIN_MUL:
+		case OUT_OPENDRAIN_MUL:
 		val = GPIO_CFGLR_CNF_MOPEN(pin);
 		break;
 
@@ -133,7 +133,7 @@ HAL_err GPIO_init_out(uint8_t port, uint8_t pin, uint8_t conf, uint8_t speed)
 	return HAL_OK;
 }
 
-HAL_err GPIO_get_port(uint8_t port, uint8_t *val)
+HAL_err GPIO_get_port(gpio_port_t port, uint8_t *val)
 {
 	volatile per_gpio_t *gpio;
 
@@ -163,7 +163,7 @@ HAL_err GPIO_get_port(uint8_t port, uint8_t *val)
 	return HAL_OK;
 }
 
-HAL_err GPIO_get_pin(uint8_t port, uint8_t pin, bool *val)
+HAL_err GPIO_get_pin(gpio_port_t port, uint8_t pin, bool *val)
 {
 	volatile per_gpio_t *gpio;
 
@@ -201,7 +201,7 @@ HAL_err GPIO_get_pin(uint8_t port, uint8_t pin, bool *val)
 	return HAL_OK;
 }
 
-HAL_err GPIO_set_port(uint8_t port, uint8_t val)
+HAL_err GPIO_set_port(gpio_port_t port, uint8_t val)
 {
 	volatile per_gpio_t *gpio;
 
@@ -227,7 +227,7 @@ HAL_err GPIO_set_port(uint8_t port, uint8_t val)
 	return HAL_OK;
 }
 
-HAL_err GPIO_set_pin(uint8_t port, uint8_t pin)
+HAL_err GPIO_set_pin(gpio_port_t port, uint8_t pin)
 {
 	volatile per_gpio_t *gpio;
 
@@ -257,7 +257,7 @@ HAL_err GPIO_set_pin(uint8_t port, uint8_t pin)
 	return HAL_OK;
 }
 
-HAL_err GPIO_clear_pin(uint8_t port, uint8_t pin)
+HAL_err GPIO_clear_pin(gpio_port_t port, uint8_t pin)
 {
 	volatile per_gpio_t *gpio;
 
@@ -287,7 +287,7 @@ HAL_err GPIO_clear_pin(uint8_t port, uint8_t pin)
 	return HAL_OK;
 }
 
-HAL_err GPIO_lock_port(uint8_t port, uint8_t mask)
+HAL_err GPIO_lock_port(gpio_port_t port, uint8_t mask)
 {
 	volatile per_gpio_t *gpio;
 	volatile uint32_t tmp;

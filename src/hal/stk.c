@@ -8,38 +8,34 @@
 #include "hal/stk.h"
 #include "hal_internal.h"
 
-HAL_err STK_enable_swi(void)
+void STK_enable_swi(void)
 {
 	BIT_SET(STK->CTLR, STK_CTLR_SWIE);
-	return HAL_OK;
 }
 
-HAL_err STK_disable_swi(void)
+void STK_disable_swi(void)
 {
 	BIT_CLEAR(STK->CTLR, STK_CTLR_SWIE);
-	return HAL_OK;
 }
 
-HAL_err STK_enable_autoreload(void)
+void STK_enable_autoreload(void)
 {
 	BIT_SET(STK->CTLR, STK_CTLR_STRE);
-	return HAL_OK;
 }
 
-HAL_err STK_disable_autoreload(void)
+void STK_disable_autoreload(void)
 {
 	BIT_CLEAR(STK->CTLR, STK_CTLR_STRE);
-	return HAL_OK;
 }
 
-HAL_err STK_set_prescaler(uint8_t prescaler)
+HAL_err STK_set_prescaler(stk_pre_t prescaler)
 {
 	switch (prescaler) {
-		case 1:
+		case STK_PRE_1:
 		BIT_SET(STK->CTLR, STK_CTLR_STCLK);
 		break;
 
-		case 8:
+		case STK_PRE_8:
 		BIT_CLEAR(STK->CTLR, STK_CTLR_STCLK);
 		break;
 
@@ -50,77 +46,52 @@ HAL_err STK_set_prescaler(uint8_t prescaler)
 	return HAL_OK;
 }
 
-HAL_err STK_enable_int(void)
+void STK_enable_int(void)
 {
 	BIT_SET(STK->CTLR, STK_CTLR_STIE);
-	return HAL_OK;
 }
 
-HAL_err STK_disable_int(void)
+void STK_disable_int(void)
 {
 	BIT_CLEAR(STK->CTLR, STK_CTLR_STIE);
-	return HAL_OK;
 }
 
-HAL_err STK_enable(void)
+void STK_enable(void)
 {
 	BIT_SET(STK->CTLR, STK_CTLR_STE);
-	return HAL_OK;
 }
 
-HAL_err STK_disable(void)
+void STK_disable(void)
 {
 	BIT_CLEAR(STK->CTLR, STK_CTLR_STE);
-	return HAL_OK;
 }
 
-HAL_err STK_get_intflag(bool *flag)
+bool STK_get_intflag(void)
 {
-	if (!flag) {
-		return HAL_EINVAL;
-	}
-
-	*flag = ((STK->SR & STK_SR_CNTIF_MASK) == STK_SR_CNTIF);
-
-	return HAL_OK;
+	return ((STK->SR & STK_SR_CNTIF_MASK) == STK_SR_CNTIF);
 }
 
-HAL_err STK_clear_intflag(void)
+void STK_clear_intflag(void)
 {
 	BIT_CLEAR(STK->SR, STK_SR_CNTIF);
-	return HAL_OK;
 }
 
-HAL_err STK_get_cnt(uint32_t *cnt)
+uint32_t STK_get_cnt(void)
 {
-	if (!cnt) {
-		return HAL_EINVAL;
-	}
-
-	*cnt = STK->CNTL;
-
-	return HAL_OK;
+	return STK->CNTL;;
 }
 
-HAL_err STK_set_cnt(uint32_t cnt)
+void STK_set_cnt(uint32_t cnt)
 {
 	STK->CNTL = cnt;
-	return HAL_OK;
 }
 
-HAL_err STK_get_cmp(uint32_t *cmp)
+uint32_t STK_get_cmp(void)
 {
-	if (!cmp) {
-		return HAL_EINVAL;
-	}
-
-	*cmp = STK->CMPLR;
-
-	return HAL_OK;
+	return STK->CMPLR;
 }
 
-HAL_err STK_set_cmp(uint32_t cmp)
+void STK_set_cmp(uint32_t cmp)
 {
 	STK->CMPLR = cmp;
-	return HAL_OK;
 }

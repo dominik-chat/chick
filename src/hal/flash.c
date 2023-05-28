@@ -29,7 +29,7 @@ static HAL_err check_status(void)
 	return HAL_OK;
 }
 
-HAL_err FLASH_set_latency(uint8_t latency)
+HAL_err FLASH_set_latency(flash_latency_t latency)
 {
 	switch (latency) {
 		case 0:
@@ -47,7 +47,7 @@ HAL_err FLASH_set_latency(uint8_t latency)
 	return HAL_OK;
 }
 
-HAL_err FLASH_set_boot_mode(uint8_t mode)
+HAL_err FLASH_set_boot_mode(boot_mode_t mode)
 {
 	switch (mode) {
 		case BOOT_MAIN:
@@ -65,7 +65,7 @@ HAL_err FLASH_set_boot_mode(uint8_t mode)
 	return HAL_OK;
 }
 
-HAL_err FLASH_enable_int(uint8_t interrupt)
+HAL_err FLASH_enable_int(flash_int_t interrupt)
 {
 	switch (interrupt) {
 		case INT_EOP:
@@ -83,7 +83,7 @@ HAL_err FLASH_enable_int(uint8_t interrupt)
 	return HAL_OK;
 }
 
-HAL_err FLASH_disable_int(uint8_t interrupt)
+HAL_err FLASH_disable_int(flash_int_t interrupt)
 {
 	switch (interrupt) {
 		case INT_EOP:
@@ -124,10 +124,9 @@ HAL_err FLASH_unlock_fpec(void)
 	}
 }
 
-HAL_err FLASH_rdpr_fpec(void)
+void FLASH_rdpr_fpec(void)
 {
 	FLASH->KEYR = FLASH_KEYR_KEY_RDPRT;
-	return HAL_OK;
 }
 
 HAL_err FLASH_lock_ob(void)

@@ -8,14 +8,9 @@
 #include "hal/esig.h"
 #include "hal_internal.h"
 
-HAL_err ESIG_get_flash_size(uint32_t *size)
+uint32_t ESIG_get_flash_size(void)
 {
-	if (!size) {
-		return HAL_EINVAL;
-	}
-
-	*size = ((uint32_t)ESIG->FLACAP)*ESIG_FLACAP_MUL;
-	return HAL_OK;
+	return ((uint32_t)ESIG->FLACAP)*ESIG_FLACAP_MUL;
 }
 
 HAL_err ESIG_get_uid(uint32_t *uid)
