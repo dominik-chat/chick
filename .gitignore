@@ -1,5 +1,6 @@
 # Output directories
 build*/
+doc*/
 
 # Objects
 *.o
