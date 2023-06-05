@@ -27,7 +27,7 @@
   - [ ] IWDG
   - [ ] WWDG
   - [x] PFIC
-  - [ ] EXTI
+  - [x] EXTI
   - [x] STK
   - [x] GPIO
   - [ ] AFIO
@@ -48,7 +48,8 @@
   - [x] linker
   - [x] makefile/cmake
   - [ ] extend to support multiple projects
+  - [ ] probably move to cmake
 - [ ] Examples
   - [ ] Blinky
   - [ ] Hello world
-  - [ ] Bootloader blinky
+  - [ ] Bootloader

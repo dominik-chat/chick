@@ -24,6 +24,7 @@ OBJS = $(OBJ) $(ASM_OBJ) $(PRJ_OBJ)
 CFLAGS += \
 	-O2 -g -flto \
 	-ffunction-sections \
+	-ffreestanding \
 	-static-libgcc \
 	-march=rv32ec \
 	-mabi=ilp32e \
@@ -36,11 +37,12 @@ LDFLAGS += \
 	-Wl,--gc-sections \
 	-lgcc
 
-CC = riscv64-elf-gcc
-LD = riscv64-elf-gcc
-SIZE = riscv64-elf-size
-DUMP = riscv64-elf-objdump
-COPY = riscv64-elf-objcopy
+CC_PREFIX = riscv64-unknown-elf
+CC = $(CC_PREFIX)-gcc
+LD = $(CC_PREFIX)-gcc
+SIZE = $(CC_PREFIX)-size
+DUMP = $(CC_PREFIX)-objdump
+COPY = $(CC_PREFIX)-objcopy
 
 all: $(OBJ) $(ASM_OBJ) $(PRJ_OBJ) $(PRJ).elf finish
 
