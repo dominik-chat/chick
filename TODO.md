@@ -22,7 +22,7 @@
   - [x] USER_WORDS
   - [x] EXTEN
 - [ ] HAL
-  - [ ] PWR
+  - [x] PWR
   - [x] RCC
   - [ ] IWDG
   - [ ] WWDG

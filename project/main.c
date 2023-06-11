@@ -32,6 +32,7 @@
 #include "hal/gpio.h"
 #include "hal/flash.h"
 #include "hal/pfic.h"
+#include "hal/pwr.h"
 #include "hal/rcc.h"
 #include "hal/stk.h"
 

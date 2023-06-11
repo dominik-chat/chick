@@ -37,7 +37,8 @@ LDFLAGS += \
 	-Wl,--gc-sections \
 	-lgcc
 
-CC_PREFIX = riscv64-unknown-elf
+#riscv64-unknown-elf
+CC_PREFIX = riscv64-elf
 CC = $(CC_PREFIX)-gcc
 LD = $(CC_PREFIX)-gcc
 SIZE = $(CC_PREFIX)-size
