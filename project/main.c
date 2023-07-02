@@ -30,6 +30,7 @@
 #include "hal/esig.h"
 #include "hal/exti.h"
 #include "hal/gpio.h"
+#include "hal/iwdg.h"
 #include "hal/flash.h"
 #include "hal/pfic.h"
 #include "hal/pwr.h"

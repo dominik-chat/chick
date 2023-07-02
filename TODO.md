@@ -24,7 +24,7 @@
 - [ ] HAL
   - [x] PWR
   - [x] RCC
-  - [ ] IWDG
+  - [x] IWDG
   - [ ] WWDG
   - [x] PFIC
   - [x] EXTI
