@@ -36,6 +36,7 @@
 #include "hal/pwr.h"
 #include "hal/rcc.h"
 #include "hal/stk.h"
+#include "hal/wwdg.h"
 
 volatile uint32_t time = 0;
 

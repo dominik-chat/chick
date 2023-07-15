@@ -25,7 +25,7 @@
   - [x] PWR
   - [x] RCC
   - [x] IWDG
-  - [ ] WWDG
+  - [x] WWDG
   - [x] PFIC
   - [x] EXTI
   - [x] STK
